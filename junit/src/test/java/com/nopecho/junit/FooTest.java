@@ -6,6 +6,8 @@ import static org.assertj.core.api.Assertions.*;
 
 class FooTest {
 
+    private Long ANY_ID = 1L;
+
     @Test
     void Foo_객체가_생성된다(){
         Foo foo = new Foo();
@@ -38,5 +40,18 @@ class FooTest {
         System.out.println("<- <- AfterEach Annotation Call! <- <-");
     }
 
+    @Test
+    void Foo_객체의_id는_Value_객체다(){
+        Foo foo = new Foo();
 
+        foo.setId(FooId.of(ANY_ID));
+
+        assertThat(foo.getId()).isInstanceOf(FooId.class);
+    }
+
+    @Test
+    void FooId_객체의_id는_Long_타입이다(){
+        FooId fooId = FooId.of(ANY_ID);
+        assertThat(fooId.getId()).isInstanceOf(Long.class);
+    }
 }

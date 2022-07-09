@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class Foo {
 
-    private Long id;
+    private FooId id;
     private String name;
 }
